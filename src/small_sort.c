@@ -6,13 +6,30 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:40:39 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/20 19:54:08 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/20 20:38:53 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	s_sort_two(t_stack **stack)
+static void	s_sort_two(t_stack **stack);
+static void	s_sort_three(t_stack **stack);
+static void	s_sort_four(t_stack **stack_a, t_stack **stack_b);
+static void	s_sort_five(t_stack **stack_a, t_stack **stack_b);
+
+void	s_sort(t_stack **stack_a, t_stack **stack_b, int size)
+{
+	if (size == 2)
+		s_sort_two(stack_a);
+	if (size == 3)
+		s_sort_three(stack_a);
+	if (size == 4)
+		s_sort_four(stack_a, stack_b);
+	if (size == 5)
+		s_sort_five(stack_a, stack_b);
+}
+
+static void	s_sort_two(t_stack **stack)
 {
 	int	nb1;
 	int	nb2;
@@ -23,7 +40,7 @@ void	s_sort_two(t_stack **stack)
 		op_s(*stack, A);
 }
 
-void	s_sort_three(t_stack **stack)
+static void	s_sort_three(t_stack **stack)
 {
 	int	nb1;
 	int	nb2;
@@ -52,7 +69,7 @@ void	s_sort_three(t_stack **stack)
 		op_revr(stack, A);
 }
 
-void	s_sort_four(t_stack **stack_a, t_stack **stack_b)
+static void	s_sort_four(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate_stack_to_find_min(stack_a);
 	op_p(stack_a, stack_b, B);
@@ -60,15 +77,15 @@ void	s_sort_four(t_stack **stack_a, t_stack **stack_b)
 	op_p(stack_a, stack_b, A);
 }
 
-void s_sort_five(t_stack **stack_a, t_stack **stack_b)
+static void	s_sort_five(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate_stack_to_find_min(stack_a);
-    op_p(stack_a, stack_b, B);
+	op_p(stack_a, stack_b, B);
 	rotate_stack_to_find_min(stack_a);
-    op_p(stack_a, stack_b, B);
+	op_p(stack_a, stack_b, B);
 	s_sort_three(stack_a);
 	if (is_sorted(stack_b))
 		op_s(*stack_b, B);
-    op_p(stack_a, stack_b, A);
-    op_p(stack_a, stack_b, A);
+	op_p(stack_a, stack_b, A);
+	op_p(stack_a, stack_b, A);
 }

@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:36:41 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/20 19:53:30 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/20 20:37:41 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	find_cheapest_push_b(t_stack **a, t_stack **b, t_operations *best)
 	}
 }
 
-void	push_to_b(t_stack **stack_a, t_stack **stack_b)
+static void	push_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	int				stack_a_size;
 	t_operations	best_op;
@@ -47,7 +47,7 @@ void	push_to_b(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	push_back_to_a(t_stack **stack_a, t_stack **stack_b)
+static void	push_back_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_b_size;
 
@@ -62,25 +62,18 @@ void	push_back_to_a(t_stack **stack_a, t_stack **stack_b)
 
 void	algo(t_stack **stack_a, t_stack **stack_b)
 {
-	int stack_a_size;
+	int	stack_a_size;
 
 	stack_a_size = get_stack_size(*stack_a);
 	if (stack_a_size == 1)
 		return ;
 	if (stack_a_size <= 5)
 	{
-		if (stack_a_size == 2)	
-			s_sort_two(stack_a);
-		if (stack_a_size == 3)
-			s_sort_three(stack_a);
-		if (stack_a_size == 4)
-			s_sort_four(stack_a, stack_b);
-		if (stack_a_size == 5)
-			s_sort_five (stack_a, stack_b);
+		s_sort(stack_a, stack_b, stack_a_size);
 		return ;
 	}
 	op_p(stack_a, stack_b, B);
 	push_to_b(stack_a, stack_b);
-	s_sort_three(stack_a);
+	s_sort(stack_a, stack_b, 3);
 	push_back_to_a(stack_a, stack_b);
 }

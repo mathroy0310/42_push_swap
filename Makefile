@@ -6,7 +6,7 @@
 #    By: maroy <maroy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 17:31:16 by maroy             #+#    #+#              #
-#    Updated: 2023/06/13 15:37:30 by maroy            ###   ########.fr        #
+#    Updated: 2023/06/20 20:43:31 by maroy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OPPATH			= $(addprefix $(OPPATH_DIR)/, $(OPPATH_SRC))
 OBJ_OP 			= $(OPPATH:.c=.o)
 
 MPATH_DIR		= src/
-MPATH_SRC		= main.c utils.c validate_input.c free.c init.c algo.c s_sort.c
+MPATH_SRC		= main.c checks.c utils.c validate_input.c free.c init.c algo.c small_sort.c get_index.c rotate_stack.c
 MPATH			= $(addprefix $(MPATH_DIR)/, $(MPATH_SRC))
 OBJ_M 			= $(MPATH:.c=.o)
 
@@ -39,7 +39,6 @@ $(NAME):	$(OBJ_M) $(OBJ_OP)
 			@$(MAKELIBFT)
 			@$(CC) $(CFLAGS) $(OBJ_M) $(OBJ_OP) libs/libft/libft.a   -o $(NAME)
 			@echo "$(GREEN)$(NAME) created !$(DEFAULT)"
-
 
 all:		$(NAME)
 

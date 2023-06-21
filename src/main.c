@@ -6,12 +6,11 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:32:59 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/20 18:04:29 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/20 20:19:59 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "stdbool.h"
 
 int	main(int argc, char **argv)
 {
@@ -39,7 +38,7 @@ int	main(int argc, char **argv)
 	{
 		algo(stack_a, stack_b);
 		while (is_sorted(stack_a) == KO)
-			op_revr(stack_a, A);
+		 	op_revr(stack_a, A);
 	}
 	free_stack_and_exit(stack_a, stack_b, EXIT_SUCCESS);
 	return (EXIT_SUCCESS);

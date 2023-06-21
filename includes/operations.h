@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:26:49 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/13 15:36:54 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/21 12:18:38 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ void	op_p(t_stack **a, t_stack **b, char c);
 void	exec_op(t_operations *op, t_stack **stack_a, t_stack **stack_b);
 void	init_operations(t_operations *op);
 void	get_op(int i_a, t_stack **s_a, t_stack **s_b, t_operations *op);
+	
 #endif
