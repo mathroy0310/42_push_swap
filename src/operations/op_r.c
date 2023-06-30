@@ -6,15 +6,12 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:53:05 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/20 15:12:19 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/26 16:29:25 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// Operation Rotate
-// Shift up all elements of stack determined by 'c' by 1.
-// The first element becomes the last one
 void	op_r(t_stack **a, char c)
 {
 	t_stack	*node;

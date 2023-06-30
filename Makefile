@@ -6,13 +6,13 @@
 #    By: maroy <maroy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 17:31:16 by maroy             #+#    #+#              #
-#    Updated: 2023/06/20 20:43:31 by maroy            ###   ########.fr        #
+#    Updated: 2023/06/26 19:58:03 by maroy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 			= push_swap
 
-MAKELIBFT	= $(MAKE) -C libs/libft
+MAKELIBFT	= $(MAKE) -C libft/
 
 HEADER_DIR		= includes/
 HEADER_SRC		= push_swap.h operations.h
@@ -37,7 +37,7 @@ RM			= rm -rf
 
 $(NAME):	$(OBJ_M) $(OBJ_OP)
 			@$(MAKELIBFT)
-			@$(CC) $(CFLAGS) $(OBJ_M) $(OBJ_OP) libs/libft/libft.a   -o $(NAME)
+			@$(CC) $(CFLAGS) $(OBJ_M) $(OBJ_OP) libft/libft.a   -o $(NAME)
 			@echo "$(GREEN)$(NAME) created !$(DEFAULT)"
 
 all:		$(NAME)

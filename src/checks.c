@@ -6,13 +6,13 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 20:03:17 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/20 20:28:42 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/26 20:05:43 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_number_min(int number, t_stack **stack)
+int32_t	is_number_min(int32_t number, t_stack **stack)
 {
 	t_stack	*node;
 
@@ -26,10 +26,10 @@ int	is_number_min(int number, t_stack **stack)
 	return (OK);
 }
 
-int	is_sorted(t_stack **stack)
+int32_t	is_sorted(t_stack **stack)
 {
 	t_stack	*current_node;
-	int		current_value;
+	int32_t	current_value;
 
 	current_node = *stack;
 	current_value = current_node->content;

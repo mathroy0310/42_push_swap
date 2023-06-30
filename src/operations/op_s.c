@@ -10,13 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//Swap the first 2 elements at the top of stack determined by 'c'.
-//Do nothing if there is only one or no elements).
 #include "../../includes/push_swap.h"
 
 void	op_s(t_stack *stack, char c)
 {
-	int	temp;
+	int32_t	temp;
 
 	temp = stack->next->content;
 	stack->next->content = stack->content;

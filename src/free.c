@@ -6,13 +6,13 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:52:26 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/20 19:18:17 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/26 20:05:58 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	delete_content(int *content)
+void	delete_content(int32_t *content)
 {
 	free(content);
 }
@@ -26,7 +26,8 @@ void	free_string_array(char **tab)
 	}
 }
 
-void	free_stack_and_exit(t_stack **stack_a, t_stack **stack_b, int exit_code)
+void	free_stack_and_exit(t_stack **stack_a, t_stack **stack_b,
+		int32_t e_code)
 {
 	if (stack_a != NULL)
 	{
@@ -38,5 +39,5 @@ void	free_stack_and_exit(t_stack **stack_a, t_stack **stack_b, int exit_code)
 		ft_lstclear(stack_b, delete_content);
 		free(stack_b);
 	}
-	exit(exit_code);
+	exit(e_code);
 }

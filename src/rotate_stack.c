@@ -6,16 +6,19 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 20:19:51 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/20 20:20:40 by maroy            ###   ########.fr       */
+/*   Updated: 2023/06/26 19:54:36 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	get_nb_rotate(t_stack **stack, int index)
+//rotate the stack to find the best index to push to stack b
+static void	exec_rotate_stack(t_stack **stack_a, int32_t index);
+
+int32_t	get_nb_rotate(t_stack **stack, int32_t index)
 {
-	int	stack_size;
-	int	nb_rotate;
+	int32_t	stack_size;
+	int32_t	nb_rotate;
 
 	nb_rotate = 0;
 	stack_size = get_stack_size(*stack);
@@ -28,35 +31,31 @@ int	get_nb_rotate(t_stack **stack, int index)
 	return (nb_rotate);
 }
 
-void rotate_stack_to_find_sort(t_stack **stack_a, t_stack **stack_b)
+void	rotate_stack_to_find_sort(t_stack **stack_a, t_stack **stack_b)
 {
-    int index;
-    int r;
+	int32_t	index;
 
-	index = find_sort_index(stack_a, (*stack_b)->content) + 1;
-    r = get_nb_rotate(stack_a, index);
-
-    if (r > 0)
-        while (r--)
-            op_r(stack_a, A);
-    else if (r < 0)
-        while (r++)
-    		op_revr(stack_a, A);
+	index = get_sort_index(stack_a, (*stack_b)->content) + 1;
+	exec_rotate_stack(stack_a, index);
 }
 
-void rotate_stack_to_find_min(t_stack **stack_a)
+void	rotate_stack_to_find_min(t_stack **stack_a)
 {
-    int min_index;
-    int r;
+	int32_t	min_index;
 
-    min_index = get_min_number_index(stack_a);
-    r = get_nb_rotate(stack_a, min_index);
-
-    if (r > 0)
-        while (r--)
-            op_r(stack_a, A);
-    else if (r < 0)
-        while (r++)
-    		op_revr(stack_a, A);
+	min_index = get_min_number_index(stack_a);
+	exec_rotate_stack(stack_a, min_index);
 }
 
+static void	exec_rotate_stack(t_stack **stack_a, int32_t index)
+{
+	int32_t	r;
+
+	r = get_nb_rotate(stack_a, index);
+	if (r > 0)
+		while (r--)
+			op_r(stack_a, A);
+	else if (r < 0)
+		while (r++)
+			op_revr(stack_a, A);
+}
