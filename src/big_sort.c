@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:36:41 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 20:05:28 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/18 13:43:11 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-//push all the numbers to stack b
+// push all the numbers to stack b
 static void	push_to_b(t_stack **stack_a, t_stack **stack_b);
-//find the best number to push to stack b, and calls get_op
+// find the best number to push to stack b, and calls get_op
 static void	find_cheapest_push_b(t_stack **a, t_stack **b, t_operations *best);
-//push all the numbers back to stack a
+// push all the numbers back to stack a
 static void	push_back_to_a(t_stack **stack_a, t_stack **stack_b);
 
-void	algo(t_stack **stack_a, t_stack **stack_b)
+void	b_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int32_t	stack_a_size;
 
-	stack_a_size = get_stack_size(*stack_a);
+	stack_a_size = ft_lstsize(*stack_a);
 	if (stack_a_size == 1)
 		return ;
 	if (stack_a_size <= 5)
@@ -42,7 +42,7 @@ static void	push_to_b(t_stack **stack_a, t_stack **stack_b)
 	int32_t			stack_a_size;
 	t_operations	best_op;
 
-	stack_a_size = get_stack_size(*stack_a);
+	stack_a_size = ft_lstsize(*stack_a);
 	while (stack_a_size > 3)
 	{
 		find_cheapest_push_b(stack_a, stack_b, &best_op);
@@ -77,7 +77,7 @@ static void	push_back_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int32_t	stack_b_size;
 
-	stack_b_size = get_stack_size(*stack_b);
+	stack_b_size = ft_lstsize(*stack_b);
 	while (stack_b_size > 0)
 	{
 		rotate_stack_to_find_sort(stack_a, stack_b);

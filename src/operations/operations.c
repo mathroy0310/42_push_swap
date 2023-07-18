@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:28:28 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 20:05:04 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/13 17:52:21 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,13 @@ void	init_operations(t_operations *op)
 	op->nb_rrr = 0;
 }
 
-void	get_op(int32_t i_a, t_stack **stack_a, t_stack **stack_b,
+void	get_op(int32_t index_a, t_stack **stack_a, t_stack **stack_b,
 		t_operations *op)
 {
 	int32_t	index_b;
-	int32_t	index_a;
 	int32_t	r;
 
-	index_a = i_a;
-	op->index_a = index_a;
-	index_b = get_sort_index(stack_b, (get_node(index_a, stack_a))->content);
+	index_b = get_sort_index(*stack_b, (get_node(index_a, stack_a))->content);
 	r = get_nb_rotate(stack_b, index_b);
 	if (r < 0)
 		op->nb_rrb = -1 * r;

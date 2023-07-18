@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:32:59 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/27 19:51:59 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/14 15:27:42 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ int32_t	main(int32_t argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argc == 1)
+		return (EXIT_SUCCESS);
 	if (validate_input(argc, argv) == KO)
 		print32_t_error();
 	setup_stacks(&stack_a, &stack_b, argc, argv);
-	if (is_sorted(stack_a) == KO)
+	if (is_sorted(*stack_a) == KO)
 	{
-		algo(stack_a, stack_b);
-		while (is_sorted(stack_a) == KO)
+		b_sort(stack_a, stack_b);
+		while (is_sorted(*stack_a) == KO)
 			op_revr(stack_a, A);
 	}
 	free_stack_and_exit(stack_a, stack_b, EXIT_SUCCESS);

@@ -6,19 +6,19 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:59:20 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 20:02:31 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/18 13:43:33 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-//initialize the stack from the arguments, if theres more than one argument
-static int32_t	initialize_stack_from_args(t_stack **stack, char **argv,
+// initialize the stack from the arguments, if theres more than one argument
+static int8_t	initialize_stack_from_args(t_stack **stack, char **argv,
 					int32_t argc);
-//initialize the stack from a string, if theres only one argument
-static int32_t	initialize_stack_from_str(t_stack **stack, char **argv);
+// initialize the stack from a string, if theres only one argument
+static int8_t	initialize_stack_from_str(t_stack **stack, char **argv);
 
-int32_t	initialize_stack(t_stack **stack, int32_t argc, char **argv)
+int8_t	initialize_stack(t_stack **stack, int32_t argc, char **argv)
 {
 	if (argc > 2)
 		if (initialize_stack_from_args(stack, argv, argc) == KO)
@@ -29,7 +29,7 @@ int32_t	initialize_stack(t_stack **stack, int32_t argc, char **argv)
 	return (OK);
 }
 
-static int32_t	check_malloc(void *ptr, char **numbers)
+static int8_t	check_malloc(void *ptr, char **numbers)
 {
 	if (ptr == NULL)
 	{
@@ -39,7 +39,7 @@ static int32_t	check_malloc(void *ptr, char **numbers)
 	return (OK);
 }
 
-static int32_t	initialize_stack_from_args(t_stack **stack, char **argv,
+static int8_t	initialize_stack_from_args(t_stack **stack, char **argv,
 		int32_t argc)
 {
 	int32_t	i;
@@ -59,7 +59,7 @@ static int32_t	initialize_stack_from_args(t_stack **stack, char **argv,
 	return (OK);
 }
 
-static int32_t	initialize_stack_from_str(t_stack **stack, char **argv)
+static int8_t	initialize_stack_from_str(t_stack **stack, char **argv)
 {
 	t_stack	*new;
 	char	**numbers;
@@ -77,6 +77,7 @@ static int32_t	initialize_stack_from_str(t_stack **stack, char **argv)
 			return (KO);
 		*value = ft_atoi(numbers[i]);
 		new = ft_lstnew(*value);
+		free(value);
 		if (check_malloc(new, numbers) == KO)
 			return (KO);
 		ft_lstadd_back(stack, new);

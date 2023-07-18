@@ -6,39 +6,34 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 20:03:17 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 20:05:43 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/18 13:43:25 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int32_t	is_number_min(int32_t number, t_stack **stack)
+int8_t	is_number_min(int32_t number, t_stack *stack)
 {
-	t_stack	*node;
-
-	node = *stack;
-	while (node != NULL)
+	while (stack != NULL)
 	{
-		if (number > node->content)
+		if (number > stack->content)
 			return (KO);
-		node = node->next;
+		stack = stack->next;
 	}
 	return (OK);
 }
 
-int32_t	is_sorted(t_stack **stack)
+int8_t	is_sorted(t_stack *stack)
 {
-	t_stack	*current_node;
 	int32_t	current_value;
 
-	current_node = *stack;
-	current_value = current_node->content;
-	while (current_node != NULL)
+	current_value = stack->content;
+	while (stack != NULL)
 	{
-		if (current_value > current_node->content)
+		if (current_value > stack->content)
 			return (KO);
-		current_value = current_node->content;
-		current_node = current_node->next;
+		current_value = stack->content;
+		stack = stack->next;
 	}
 	return (OK);
 }

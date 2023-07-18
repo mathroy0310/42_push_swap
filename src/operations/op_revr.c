@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:54:07 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 16:29:39 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/13 16:42:39 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	op_revr(t_stack **a, char c)
 	t_stack	*node;
 	t_stack	*last_node;
 
-	if (get_stack_size(*a) < 2)
+	if (ft_lstsize(*a) < 2)
 		return ;
 	node = *a;
 	last_node = NULL;

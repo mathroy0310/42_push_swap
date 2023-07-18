@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 20:03:17 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 20:05:12 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/18 13:43:50 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,4 @@ int32_t	min(int32_t a, int32_t b)
 	if (a < b)
 		return (a);
 	return (b);
-}
-
-int32_t	get_stack_size(t_stack *stack)
-{
-	int32_t	size;
-
-	size = 0;
-	while (stack != NULL)
-	{
-		stack = stack->next;
-		size++;
-	}
-	return (size);
 }

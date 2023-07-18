@@ -6,63 +6,58 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 20:17:16 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 20:05:36 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/13 17:55:09 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int32_t	get_min_number_index(t_stack **stack)
+int32_t	get_min_number_index(t_stack *stack)
 {
-	t_stack	*node;
 	int32_t	min;
-	int32_t	index;
+	int32_t	min_index;
 	int32_t	i;
 
-	index = 0;
+	min_index = 0;
 	min = INT_MAX;
 	i = 1;
-	node = *stack;
-	while (node != NULL)
+	while (stack != NULL)
 	{
-		if (node->content <= min)
+		if (stack->content <= min)
 		{
-			min = node->content;
-			index = i;
+			min = stack->content;
+			min_index = i;
 		}
 		i++;
-		node = node->next;
+		stack = stack->next;
 	}
-	return (index);
+	return (min_index);
 }
 
-int32_t	get_max_number_index(t_stack **stack)
+int32_t	get_max_number_index(t_stack *stack)
 {
-	t_stack	*node;
 	int32_t	max;
-	int32_t	index;
+	int32_t	max_index;
 	int32_t	i;
 
-	index = 0;
+	max_index = 0;
 	max = INT_MIN;
 	i = 1;
-	node = *stack;
-	while (node != NULL)
+	while (stack != NULL)
 	{
-		if (node->content >= max)
+		if (stack->content >= max)
 		{
-			max = node->content;
-			index = i;
+			max = stack->content;
+			max_index = i;
 		}
 		i++;
-		node = node->next;
+		stack = stack->next;
 	}
-	return (index);
+	return (max_index);
 }
 
-int32_t	get_sort_index(t_stack **stack, int32_t number)
+int32_t	get_sort_index(t_stack *stack, int32_t number)
 {
-	t_stack	*node;
 	int32_t	min;
 	int32_t	index;
 	int32_t	i;
@@ -72,16 +67,15 @@ int32_t	get_sort_index(t_stack **stack, int32_t number)
 	index = 0;
 	min = INT_MIN;
 	i = 1;
-	node = *stack;
-	while (node != NULL)
+	while (stack != NULL)
 	{
-		if (number > node->content && (node->content >= min))
+		if (number > stack->content && stack->content >= min)
 		{
-			min = node->content;
+			min = stack->content;
 			index = i;
 		}
 		i++;
-		node = node->next;
+		stack = stack->next;
 	}
 	return (index);
 }

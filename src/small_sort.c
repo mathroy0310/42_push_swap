@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:40:39 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 19:54:38 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/13 16:27:42 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static void	s_sort_five(t_stack **stack_a, t_stack **stack_b)
 	rotate_stack_to_find_min(stack_a);
 	op_p(stack_a, stack_b, B);
 	s_sort_three(stack_a);
-	if (is_sorted(stack_b) == OK)
+	if (is_sorted(*stack_b) == OK)
 		op_s(*stack_b, B);
 	op_p(stack_a, stack_b, A);
 	op_p(stack_a, stack_b, A);

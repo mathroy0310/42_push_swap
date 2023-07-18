@@ -6,7 +6,7 @@
 /*   By: maroy <maroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:52:26 by maroy             #+#    #+#             */
-/*   Updated: 2023/06/26 20:05:58 by maroy            ###   ########.fr       */
+/*   Updated: 2023/07/13 18:59:21 by maroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,15 @@ void	delete_content(int32_t *content)
 
 void	free_string_array(char **tab)
 {
-	if (*tab)
+	int	i;
+
+	i = 0;
+	while (tab[i])
 	{
-		free(tab);
-		tab++;
+		free(tab[i]);
+		i++;
 	}
+	free(tab);
 }
 
 void	free_stack_and_exit(t_stack **stack_a, t_stack **stack_b,
